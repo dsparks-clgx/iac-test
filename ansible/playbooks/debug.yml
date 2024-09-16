@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  vars:
+    msg: "Hello, World!"
+  tasks:
+    - name: Print debug message
+      debug: var=msg
