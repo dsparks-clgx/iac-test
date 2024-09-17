@@ -4,7 +4,7 @@
 
 # Jenkins sites checkbox is returned as a comma separated string. Convert it to a list.
 selected_sites: "{{ 'nationwideenterprise.msbexpress.net,rcttest7.msbexpress.net'.split(',') }}"
-parameters: "{{ 'UI_MAINT_REDIRECT_ALL', 'UI_MAINT_REDIRECT_CUSTOMER' }}"
+selected_parameters: "{{ 'UI_MAINT_REDIRECT_ALL', 'UI_MAINT_REDIRECT_CUSTOMER' }}"
 
 #imperva_action: "disable-site-rule"
 imperva_action: "enable-site-rule"

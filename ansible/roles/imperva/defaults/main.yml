@@ -1,5 +1,5 @@
 ---
 
 # Parameters
-ui_maint_redirect_all: true
-ui_maint_redirect_customer: true
+ui_maint_redirect_all: "{{selected_parameters | regex_search('UI_MAINT_REDIRECT_ALL') | default('', true) | length > 0}}"
+ui_maint_redirect_customer: "{{selected_parameters | regex_search('UI_MAINT_REDIRECT_CUSTOMER') | default('', true) | length > 0}}"
