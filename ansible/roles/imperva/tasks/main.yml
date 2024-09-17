@@ -1,0 +1,7 @@
+---
+
+- include: disable_enable_maintenance_page.yml
+  when: imperva_action == "disable-site-rule" or imperva_action == "enable-site-rule"
+
+- include: purge_site_cache.yml
+  when: imperva_action == "purge-site-cache"

@@ -1,0 +1,5 @@
+---
+
+# Parameters
+ui_maint_redirect_all: true
+ui_maint_redirect_customer: true

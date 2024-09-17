@@ -1,0 +1,15 @@
+---
+
+- name: Print Selected Sites
+  debug:
+    msg: "{{ selected_sites }}"
+
+- name: Enable Maintenance Redirect All Rule
+  debug:
+    msg: "https://my.imperva.com/api/prov/v1/sites/incapRules/enableDisable?rule_id={{ item.rule_id_redirect_all }}&enable={{ status_flag }}"
+  with_items: 
+      - "{{ sites }}"
+  when: ui_maint_redirect_all and item.url in selected_sites
+  loop_control:
+    label: "{{ item.url }}"
+  

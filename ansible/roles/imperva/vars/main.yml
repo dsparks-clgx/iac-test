@@ -1,0 +1,34 @@
+---
+
+# Jenkins Parameters:
+
+# Jenkins sites checkbox is returned as a comma separated string. Convert it to a list.
+selected_sites: "{{ 'nationwideenterprise.msbexpress.net,rcttest7.msbexpress.net,travelers.msbexpress.net'.split(',') }}"
+parameters: "{{ 'UI_MAINT_REDIRECT_ALL', 'UI_MAINT_REDIRECT_CUSTOMER' }}"
+
+imperva_action: "disable-site-rule"
+#imperva_action: "enable-site-rule"
+#imperva_action: "purge-site-cache"
+
+# Status flag is used to determine if the site rule should be enabled or disabled.
+status_flag: "{{ (imperva_action == 'enable-site-rule') | bool }}"
+
+environment: "uat"
+api_key: "123456789"
+api_id: "123456789"
+
+sites: 
+  - url: "nationwideenterprise.msbexpress.net"
+    site_id: "7777"
+    rule_id_redirect_all: "71"
+    rule_id_redirect_customer: "72"
+
+  - url: "rcttest7.msbexpress.net"
+    site_id: "8888"
+    rule_id_redirect_all: "81"
+    rule_id_redirect_customer: "82"
+
+  - url: "travelers.msbexpress.net"
+    site_id: "9999"
+    rule_id_redirect_all: "91"
+    rule_id_redirect_customer: "92"
