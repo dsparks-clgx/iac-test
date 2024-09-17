@@ -3,15 +3,17 @@
 # Jenkins Parameters:
 
 # Jenkins sites checkbox is returned as a comma separated string. Convert it to a list.
-selected_sites: "{{ 'nationwideenterprise.msbexpress.net,rcttest7.msbexpress.net,travelers.msbexpress.net'.split(',') }}"
+selected_sites: "{{ 'nationwideenterprise.msbexpress.net,rcttest7.msbexpress.net'.split(',') }}"
 parameters: "{{ 'UI_MAINT_REDIRECT_ALL', 'UI_MAINT_REDIRECT_CUSTOMER' }}"
 
-imperva_action: "disable-site-rule"
-#imperva_action: "enable-site-rule"
+#imperva_action: "disable-site-rule"
+imperva_action: "enable-site-rule"
 #imperva_action: "purge-site-cache"
 
 # Status flag is used to determine if the site rule should be enabled or disabled.
+#status_flag: "{{ 'true' if imperva_action == 'enable-site-rule' else 'false' if imperva_action == 'disable-site-rule' else 'undefined' }}"
 status_flag: "{{ (imperva_action == 'enable-site-rule') | bool }}"
+status_msg: "{{ 'Enabling' if status_flag else 'Disabling' }}"
 
 environment: "uat"
 api_key: "123456789"
