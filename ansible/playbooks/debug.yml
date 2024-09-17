@@ -7,3 +7,6 @@
   tasks:
     - name: Print debug message
       debug: var=msg
+    - name: Print debug message with a message
+      debug:
+        msg: "The message is {{ msg }}"
